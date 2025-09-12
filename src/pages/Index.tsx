@@ -9,6 +9,7 @@ import { ProjectsPage } from '@/components/pages/ProjectsPage';
 import { EducationPage } from '@/components/pages/EducationPage';
 import { AwardsPage } from '@/components/pages/AwardsPage';
 import { LinksPage } from '@/components/pages/LinksPage';
+import { ContactPage } from '@/components/pages/ContactPage';
 
 const pages = [
   { name: 'Cover', component: CoverPage },
@@ -19,6 +20,7 @@ const pages = [
   { name: 'Education', component: EducationPage },
   { name: 'Awards', component: AwardsPage },
   { name: 'Links', component: LinksPage },
+  { name: 'Contact', component: ContactPage },
 ];
 
 const Index = () => {
