@@ -34,11 +34,30 @@ const Index = () => {
     setTimeout(() => {
       setCurrentPage(newPage);
       setIsFlipping(false);
-    }, 300);
+    }, 800);
   };
 
-  // Keyboard navigation
+  // Scroll navigation
   useEffect(() => {
+    let isScrolling = false;
+    
+    const handleScroll = (e: WheelEvent) => {
+      if (isScrolling || isFlipping) return;
+      
+      e.preventDefault();
+      isScrolling = true;
+      
+      if (e.deltaY > 0 && currentPage < pages.length - 1) {
+        handlePageChange(currentPage + 1);
+      } else if (e.deltaY < 0 && currentPage > 0) {
+        handlePageChange(currentPage - 1);
+      }
+      
+      setTimeout(() => {
+        isScrolling = false;
+      }, 1000);
+    };
+
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight' || e.key === ' ') {
         handlePageChange(Math.min(pages.length - 1, currentPage + 1));
@@ -47,9 +66,14 @@ const Index = () => {
       }
     };
 
+    window.addEventListener('wheel', handleScroll, { passive: false });
     window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [currentPage]);
+    
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [currentPage, isFlipping]);
 
   const CurrentPageComponent = pages[currentPage].component;
 
@@ -58,18 +82,20 @@ const Index = () => {
       <ParticleBackground />
       
       {/* Book Container */}
-      <div className="relative z-10">
-        <div 
-          className={`transition-all duration-600 ease-in-out ${
-            isFlipping ? 'transform scale-95 opacity-80' : 'transform scale-100 opacity-100'
-          }`}
-          style={{
-            perspective: '1000px',
-            transformStyle: 'preserve-3d',
-          }}
-        >
-          <div className="book-page">
-            <CurrentPageComponent />
+      <div className="relative z-10 flex justify-center items-center min-h-screen p-8">
+        <div className="book-container">
+          <div className="book">
+            <div className="book-spine"></div>
+            <div 
+              className={`book-page transition-all duration-700 ease-in-out ${
+                isFlipping ? 'page-turn' : ''
+              }`}
+              style={{
+                transformStyle: 'preserve-3d',
+              }}
+            >
+              <CurrentPageComponent />
+            </div>
           </div>
         </div>
       </div>
@@ -82,9 +108,10 @@ const Index = () => {
         pageNames={pages.map(p => p.name)}
       />
 
-      {/* Keyboard Instructions */}
+      {/* Instructions */}
       <div className="fixed top-4 right-4 z-50 bg-card/80 backdrop-blur-sm rounded-lg p-3 text-sm text-muted-foreground border border-border/50">
         <div className="space-y-1">
+          <div>🖱️ Scroll to flip pages</div>
           <div>← → Arrow keys to navigate</div>
           <div>Space bar for next page</div>
         </div>

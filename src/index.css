@@ -174,4 +174,85 @@ All colors MUST be HSL.
     transform: scale(1.05);
     transition: all 0.3s ease;
   }
+
+  /* Book styles */
+  .book-container {
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    @apply relative w-full max-w-6xl mx-auto;
+  }
+
+  .book {
+    @apply relative bg-gradient-to-br from-amber-50 to-amber-100;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 
+      5px 0 20px rgba(0, 0, 0, 0.2),
+      inset 0 0 20px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    border-left: 20px solid #8B4513;
+    position: relative;
+    min-height: 90vh;
+  }
+
+  .book::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to right, #654321, #8B4513);
+    border-radius: 3px 0 0 3px;
+  }
+
+  .book-page {
+    @apply min-h-screen flex flex-col justify-center items-center p-8 relative;
+    background: 
+      radial-gradient(circle at 100% 50%, transparent 20px, hsl(var(--background)) 21px),
+      linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%);
+    border-right: 1px solid hsl(var(--border));
+    box-shadow: inset -5px 0 20px rgba(0, 0, 0, 0.1);
+    transform-origin: left center;
+    backface-visibility: hidden;
+  }
+
+  .page-turn {
+    animation: page-flip 0.8s ease-in-out;
+  }
+
+  @keyframes page-flip {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(-90deg);
+    }
+    100% {
+      transform: rotateY(-180deg);
+    }
+  }
+
+  .book-spine {
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 25px;
+    height: 100%;
+    background: linear-gradient(to bottom, #8B4513, #654321, #8B4513);
+    border-radius: 5px 0 0 5px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .book-spine::after {
+    content: 'YASH MUSTERYA';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    color: gold;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
 }

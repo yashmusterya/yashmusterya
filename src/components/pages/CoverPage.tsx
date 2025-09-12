@@ -1,10 +1,25 @@
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import profileImage from '@/assets/yash-profile.jpg';
 
 export const CoverPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 relative">
+    <div className="book-page">
       <div className="text-center space-y-8 max-w-2xl">
+        {/* Profile Image */}
+        <div className="mb-8">
+          <div className="relative inline-block">
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl mx-auto mb-6">
+              <img 
+                src={profileImage} 
+                alt="Yash Musterya - Full Stack Developer" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
         {/* Name and Title */}
         <div className="space-y-4">
           <h1 className="text-6xl md:text-8xl font-bold bg-gradient-accent bg-clip-text text-transparent animate-glow-pulse">
