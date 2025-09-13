@@ -31,7 +31,7 @@ const Index = () => {
     setTimeout(() => {
       setCurrentGroup(newGroup);
       setIsFlipping(false);
-    }, 800);
+    }, 1200);
   };
 
   // Scroll navigation
@@ -52,7 +52,7 @@ const Index = () => {
       
       setTimeout(() => {
         isScrolling = false;
-      }, 1000);
+      }, 1500);
     };
 
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -86,14 +86,14 @@ const Index = () => {
           <div className="book-spine"></div>
           <div 
             className={`book-page left ${
-              isFlipping ? 'page-turn-left flipping' : ''
+              isFlipping ? 'page-turn' : ''
             }`}
           >
             <LeftPageComponent />
           </div>
           <div 
             className={`book-page right ${
-              isFlipping ? 'page-turn-right flipping' : ''
+              isFlipping ? 'page-flip-back' : ''
             }`}
           >
             <RightPageComponent />
