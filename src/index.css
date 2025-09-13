@@ -8,54 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Portfolio Navy Blue Theme */
-    --background: 220 25% 6%;
-    --foreground: 210 100% 98%;
+    /* Old Money Theme */
+    --background: 35 25% 92%;
+    --foreground: 30 15% 15%;
 
-    --card: 220 25% 8%;
-    --card-foreground: 210 100% 98%;
+    --card: 42 30% 95%;
+    --card-foreground: 30 15% 15%;
 
-    --popover: 220 25% 8%;
-    --popover-foreground: 210 100% 98%;
+    --popover: 42 30% 95%;
+    --popover-foreground: 30 15% 15%;
 
-    --primary: 210 100% 60%;
-    --primary-foreground: 220 25% 6%;
+    --primary: 45 65% 45%;
+    --primary-foreground: 42 30% 95%;
 
-    --secondary: 220 25% 12%;
-    --secondary-foreground: 210 100% 98%;
+    --secondary: 35 20% 85%;
+    --secondary-foreground: 30 15% 15%;
 
-    --muted: 220 25% 12%;
-    --muted-foreground: 210 20% 70%;
+    --muted: 35 15% 88%;
+    --muted-foreground: 30 10% 45%;
 
-    --accent: 210 100% 60%;
-    --accent-foreground: 220 25% 6%;
+    --accent: 42 85% 55%;
+    --accent-foreground: 30 15% 15%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 100% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 42 30% 95%;
 
-    --border: 220 25% 15%;
-    --input: 220 25% 12%;
-    --ring: 210 100% 60%;
+    --border: 35 20% 80%;
+    --input: 42 25% 90%;
+    --ring: 45 65% 45%;
 
     --radius: 0.75rem;
 
-    /* Custom Portfolio Colors */
-    --navy-dark: 220 25% 6%;
-    --navy-medium: 220 25% 12%;
-    --navy-light: 220 25% 18%;
-    --blue-glow: 210 100% 60%;
-    --blue-electric: 195 100% 65%;
-    --blue-soft: 210 50% 85%;
+    /* Old Money Custom Colors */
+    --cream: 42 30% 95%;
+    --warm-white: 45 25% 97%;
+    --gold: 45 85% 55%;
+    --deep-brown: 30 25% 25%;
+    --sage: 120 15% 65%;
+    --burgundy: 0 40% 35%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 25% 6%), hsl(220 25% 12%));
-    --gradient-accent: linear-gradient(135deg, hsl(210 100% 60%), hsl(195 100% 65%));
-    --gradient-card: linear-gradient(135deg, hsl(220 25% 8%) 0%, hsl(220 25% 12%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(42 30% 95%), hsl(35 25% 92%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 85% 55%), hsl(42 85% 65%));
+    --gradient-card: linear-gradient(135deg, hsl(42 30% 95%) 0%, hsl(35 25% 92%) 100%);
 
     /* Shadows */
-    --shadow-glow: 0 0 30px hsl(210 100% 60% / 0.3);
-    --shadow-book: 0 10px 40px hsl(220 25% 3% / 0.5);
-    --shadow-page: 0 5px 25px hsl(220 25% 3% / 0.3);
+    --shadow-glow: 0 0 30px hsl(45 85% 55% / 0.2);
+    --shadow-book: 0 15px 60px hsl(30 25% 25% / 0.3);
+    --shadow-page: 0 8px 32px hsl(30 25% 25% / 0.15);
 
     --radius: 0.75rem;
 
@@ -77,26 +77,26 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Same colors for dark mode - portfolio is inherently dark themed */
-    --background: 220 25% 6%;
-    --foreground: 210 100% 98%;
-    --card: 220 25% 8%;
-    --card-foreground: 210 100% 98%;
-    --popover: 220 25% 8%;
-    --popover-foreground: 210 100% 98%;
-    --primary: 210 100% 60%;
-    --primary-foreground: 220 25% 6%;
-    --secondary: 220 25% 12%;
-    --secondary-foreground: 210 100% 98%;
-    --muted: 220 25% 12%;
-    --muted-foreground: 210 20% 70%;
-    --accent: 210 100% 60%;
-    --accent-foreground: 220 25% 6%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 100% 98%;
-    --border: 220 25% 15%;
-    --input: 220 25% 12%;
-    --ring: 210 100% 60%;
+    /* Old Money Dark Theme */
+    --background: 30 25% 12%;
+    --foreground: 42 30% 95%;
+    --card: 30 20% 15%;
+    --card-foreground: 42 30% 95%;
+    --popover: 30 20% 15%;
+    --popover-foreground: 42 30% 95%;
+    --primary: 45 85% 55%;
+    --primary-foreground: 30 25% 12%;
+    --secondary: 30 15% 20%;
+    --secondary-foreground: 42 30% 95%;
+    --muted: 30 15% 18%;
+    --muted-foreground: 35 20% 70%;
+    --accent: 45 85% 55%;
+    --accent-foreground: 30 25% 12%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 42 30% 95%;
+    --border: 30 20% 25%;
+    --input: 30 15% 18%;
+    --ring: 45 85% 55%;
   }
 }
 
@@ -124,10 +124,10 @@ All colors MUST be HSL.
     position: absolute;
     width: 2px;
     height: 2px;
-    background: hsl(var(--blue-glow));
+    background: hsl(var(--gold));
     border-radius: 50%;
     animation: float 10s infinite ease-in-out;
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   @keyframes float {
@@ -179,68 +179,83 @@ All colors MUST be HSL.
   .book-container {
     perspective: 2000px;
     transform-style: preserve-3d;
-    @apply relative w-full max-w-6xl mx-auto;
+    @apply relative w-full max-w-7xl mx-auto;
   }
 
   .book {
-    @apply relative bg-gradient-to-br from-amber-50 to-amber-100;
-    border-radius: 0 15px 15px 0;
-    box-shadow: 
-      5px 0 20px rgba(0, 0, 0, 0.2),
-      inset 0 0 20px rgba(0, 0, 0, 0.1);
+    @apply relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 85vh;
+    min-height: 600px;
+    background: linear-gradient(145deg, hsl(var(--cream)), hsl(var(--warm-white)));
+    border-radius: 15px;
+    box-shadow: var(--shadow-book);
     transform-style: preserve-3d;
-    border-left: 20px solid #8B4513;
     position: relative;
-    min-height: 90vh;
+    display: flex;
   }
 
   .book::before {
     content: '';
     position: absolute;
-    left: -20px;
-    top: 0;
-    width: 20px;
-    height: 100%;
-    background: linear-gradient(to right, #654321, #8B4513);
-    border-radius: 3px 0 0 3px;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 90%;
+    background: hsl(var(--deep-brown));
+    border-radius: 2px;
+    z-index: 10;
   }
 
   .book-page {
-    @apply min-h-screen flex flex-col justify-center items-center p-8 relative;
-    background: 
-      radial-gradient(circle at 100% 50%, transparent 20px, hsl(var(--background)) 21px),
-      linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%);
-    border-right: 1px solid hsl(var(--border));
-    box-shadow: inset -5px 0 20px rgba(0, 0, 0, 0.1);
-    transform-origin: left center;
+    @apply flex-1 flex flex-col justify-center items-center p-6 relative;
+    background: hsl(var(--warm-white));
+    border: 1px solid hsl(var(--border));
+    transform-origin: center;
     backface-visibility: hidden;
+    overflow-y: auto;
+  }
+
+  .book-page.left {
+    border-right: none;
+    border-radius: 15px 0 0 15px;
+  }
+
+  .book-page.right {
+    border-left: none;
+    border-radius: 0 15px 15px 0;
   }
 
   .page-turn {
-    animation: page-flip 0.8s ease-in-out;
+    animation: page-flip 0.4s ease-in-out;
   }
 
   @keyframes page-flip {
     0% {
-      transform: rotateY(0deg);
+      opacity: 1;
+      transform: scale(1);
     }
     50% {
-      transform: rotateY(-90deg);
+      opacity: 0;
+      transform: scale(0.95);
     }
     100% {
-      transform: rotateY(-180deg);
+      opacity: 1;
+      transform: scale(1);
     }
   }
 
   .book-spine {
     position: absolute;
-    left: -25px;
+    left: -30px;
     top: 0;
-    width: 25px;
+    width: 30px;
     height: 100%;
-    background: linear-gradient(to bottom, #8B4513, #654321, #8B4513);
-    border-radius: 5px 0 0 5px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to bottom, hsl(var(--deep-brown)), hsl(var(--burgundy)), hsl(var(--deep-brown)));
+    border-radius: 8px 0 0 8px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
   }
 
   .book-spine::after {
@@ -249,7 +264,7 @@ All colors MUST be HSL.
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
-    color: gold;
+    color: hsl(var(--gold));
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 2px;

@@ -11,30 +11,27 @@ import { AwardsPage } from '@/components/pages/AwardsPage';
 import { LinksPage } from '@/components/pages/LinksPage';
 import { ContactPage } from '@/components/pages/ContactPage';
 
-const pages = [
-  { name: 'Cover', component: CoverPage },
-  { name: 'About', component: AboutPage },
-  { name: 'Skills', component: SkillsPage },
-  { name: 'Experience', component: ExperiencePage },
-  { name: 'Projects', component: ProjectsPage },
-  { name: 'Education', component: EducationPage },
-  { name: 'Awards', component: AwardsPage },
-  { name: 'Links', component: LinksPage },
-  { name: 'Contact', component: ContactPage },
+// Organize pages into pairs for the two-page layout
+const pageGroups = [
+  { left: { name: 'Cover', component: CoverPage }, right: { name: 'About', component: AboutPage } },
+  { left: { name: 'Skills', component: SkillsPage }, right: { name: 'Experience', component: ExperiencePage } },
+  { left: { name: 'Projects', component: ProjectsPage }, right: { name: 'Education', component: EducationPage } },
+  { left: { name: 'Awards', component: AwardsPage }, right: { name: 'Links', component: LinksPage } },
+  { left: { name: 'Contact', component: ContactPage }, right: { name: 'Contact', component: ContactPage } },
 ];
 
 const Index = () => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentGroup, setCurrentGroup] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
 
-  const handlePageChange = (newPage: number) => {
-    if (newPage === currentPage || isFlipping) return;
+  const handlePageChange = (newGroup: number) => {
+    if (newGroup === currentGroup || isFlipping) return;
     
     setIsFlipping(true);
     setTimeout(() => {
-      setCurrentPage(newPage);
+      setCurrentGroup(newGroup);
       setIsFlipping(false);
-    }, 800);
+    }, 400);
   };
 
   // Scroll navigation
@@ -47,22 +44,22 @@ const Index = () => {
       e.preventDefault();
       isScrolling = true;
       
-      if (e.deltaY > 0 && currentPage < pages.length - 1) {
-        handlePageChange(currentPage + 1);
-      } else if (e.deltaY < 0 && currentPage > 0) {
-        handlePageChange(currentPage - 1);
+      if (e.deltaY > 0 && currentGroup < pageGroups.length - 1) {
+        handlePageChange(currentGroup + 1);
+      } else if (e.deltaY < 0 && currentGroup > 0) {
+        handlePageChange(currentGroup - 1);
       }
       
       setTimeout(() => {
         isScrolling = false;
-      }, 1000);
+      }, 600);
     };
 
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight' || e.key === ' ') {
-        handlePageChange(Math.min(pages.length - 1, currentPage + 1));
+        handlePageChange(Math.min(pageGroups.length - 1, currentGroup + 1));
       } else if (e.key === 'ArrowLeft') {
-        handlePageChange(Math.max(0, currentPage - 1));
+        handlePageChange(Math.max(0, currentGroup - 1));
       }
     };
 
@@ -73,28 +70,34 @@ const Index = () => {
       window.removeEventListener('wheel', handleScroll);
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [currentPage, isFlipping]);
+  }, [currentGroup, isFlipping]);
 
-  const CurrentPageComponent = pages[currentPage].component;
+  const currentPageGroup = pageGroups[currentGroup];
+  const LeftPageComponent = currentPageGroup.left.component;
+  const RightPageComponent = currentPageGroup.right.component;
 
   return (
-    <main className="relative min-h-screen bg-gradient-primary overflow-hidden">
+    <main className="relative h-screen bg-gradient-primary overflow-hidden">
       <ParticleBackground />
       
       {/* Book Container */}
-      <div className="relative z-10 flex justify-center items-center min-h-screen p-8">
+      <div className="relative z-10 flex justify-center items-center h-full p-4">
         <div className="book-container">
           <div className="book">
             <div className="book-spine"></div>
             <div 
-              className={`book-page transition-all duration-700 ease-in-out ${
+              className={`book-page left ${
                 isFlipping ? 'page-turn' : ''
               }`}
-              style={{
-                transformStyle: 'preserve-3d',
-              }}
             >
-              <CurrentPageComponent />
+              <LeftPageComponent />
+            </div>
+            <div 
+              className={`book-page right ${
+                isFlipping ? 'page-turn' : ''
+              }`}
+            >
+              <RightPageComponent />
             </div>
           </div>
         </div>
@@ -102,10 +105,10 @@ const Index = () => {
 
       {/* Navigation */}
       <BookNavigation
-        currentPage={currentPage}
-        totalPages={pages.length}
+        currentPage={currentGroup}
+        totalPages={pageGroups.length}
         onPageChange={handlePageChange}
-        pageNames={pages.map(p => p.name)}
+        pageNames={[`${currentPageGroup.left.name} & ${currentPageGroup.right.name}`]}
       />
 
       {/* Instructions */}

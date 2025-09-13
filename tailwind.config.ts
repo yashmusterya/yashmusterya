@@ -50,17 +50,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Portfolio custom colors
-        navy: {
-          dark: "hsl(var(--navy-dark))",
-          medium: "hsl(var(--navy-medium))",
-          light: "hsl(var(--navy-light))",
-        },
-        blue: {
-          glow: "hsl(var(--blue-glow))",
-          electric: "hsl(var(--blue-electric))",
-          soft: "hsl(var(--blue-soft))",
-        },
+        // Old Money custom colors
+        cream: "hsl(var(--cream))",
+        'warm-white': "hsl(var(--warm-white))",
+        gold: "hsl(var(--gold))",
+        'deep-brown': "hsl(var(--deep-brown))",
+        sage: "hsl(var(--sage))",
+        burgundy: "hsl(var(--burgundy))",
       },
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
