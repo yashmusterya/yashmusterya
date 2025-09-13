@@ -31,7 +31,7 @@ const Index = () => {
     setTimeout(() => {
       setCurrentGroup(newGroup);
       setIsFlipping(false);
-    }, 400);
+    }, 800);
   };
 
   // Scroll navigation
@@ -52,7 +52,7 @@ const Index = () => {
       
       setTimeout(() => {
         isScrolling = false;
-      }, 600);
+      }, 1000);
     };
 
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -77,28 +77,26 @@ const Index = () => {
   const RightPageComponent = currentPageGroup.right.component;
 
   return (
-    <main className="relative h-screen bg-gradient-primary overflow-hidden">
+    <main className="relative h-screen w-screen bg-gradient-primary overflow-hidden">
       <ParticleBackground />
       
       {/* Book Container */}
-      <div className="relative z-10 flex justify-center items-center h-full p-4">
-        <div className="book-container">
-          <div className="book">
-            <div className="book-spine"></div>
-            <div 
-              className={`book-page left ${
-                isFlipping ? 'page-turn' : ''
-              }`}
-            >
-              <LeftPageComponent />
-            </div>
-            <div 
-              className={`book-page right ${
-                isFlipping ? 'page-turn' : ''
-              }`}
-            >
-              <RightPageComponent />
-            </div>
+      <div className="book-container">
+        <div className="book">
+          <div className="book-spine"></div>
+          <div 
+            className={`book-page left ${
+              isFlipping ? 'page-turn-left flipping' : ''
+            }`}
+          >
+            <LeftPageComponent />
+          </div>
+          <div 
+            className={`book-page right ${
+              isFlipping ? 'page-turn-right flipping' : ''
+            }`}
+          >
+            <RightPageComponent />
           </div>
         </div>
       </div>
@@ -108,7 +106,7 @@ const Index = () => {
         currentPage={currentGroup}
         totalPages={pageGroups.length}
         onPageChange={handlePageChange}
-        pageNames={[`${currentPageGroup.left.name} & ${currentPageGroup.right.name}`]}
+        pageNames={pageGroups.map((group, index) => `${group.left.name} & ${group.right.name}`)}
       />
 
       {/* Instructions */}

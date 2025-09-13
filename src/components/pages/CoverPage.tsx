@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profileImage from '@/assets/yash-profile.jpg';
+import profileImage from '@/assets/yash-profile-new.jpg';
 
 export const CoverPage = () => {
   return (
