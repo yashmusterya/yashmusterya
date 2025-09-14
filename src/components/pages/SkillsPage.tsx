@@ -17,10 +17,10 @@ const categories = ['Programming', 'Backend', 'AI/ML', 'Frontend', 'Database', '
 
 export const SkillsPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
-      <div className="max-w-6xl w-full space-y-8">
-        <div className="text-center space-y-4">
-          <h1 className="text-5xl md:text-6xl font-bold text-primary">Skills & Expertise</h1>
+    <div className="w-full h-full flex items-center justify-center p-3 sm:p-4 md:p-6">
+      <div className="max-w-4xl w-full space-y-4 sm:space-y-6">
+        <div className="text-center space-y-2 sm:space-y-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">Skills & Expertise</h1>
           <div className="h-1 w-24 bg-gradient-accent mx-auto rounded-full shadow-glow"></div>
           <p className="text-muted-foreground text-lg">Technologies I work with</p>
         </div>

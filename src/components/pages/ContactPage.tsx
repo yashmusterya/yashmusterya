@@ -68,141 +68,137 @@ export const ContactPage = () => {
   };
 
   return (
-    <div className="book-page">
-      <div className="flex flex-col items-center justify-center min-h-screen p-8">
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent mb-4">
-              Get In Touch
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind or want to collaborate? I'd love to hear from you.
-              Let's create something amazing together.
-            </p>
-          </div>
+    <div className="w-full h-full flex flex-col justify-center items-center p-3 sm:p-4 md:p-6">
+      <div className="w-full max-w-2xl mx-auto">
+        <div className="text-center mb-4 sm:mb-6">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent mb-2 sm:mb-3">
+            Get In Touch
+          </h1>
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
+            Have a project in mind? Let's create something amazing together.
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Contact Information */}
-            <div className="space-y-6">
-              <Card className="bg-card/50 backdrop-blur-sm border-border/50">
-                <CardHeader>
-                  <CardTitle className="text-2xl text-foreground">Let's Connect</CardTitle>
-                  <CardDescription className="text-muted-foreground">
-                    Ready to turn your ideas into reality? Reach out and let's start building.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
-                    <Mail className="w-5 h-5 text-primary" />
-                    <span>musteryay@gmail.com</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
-                    <Phone className="w-5 h-5 text-primary" />
-                    <span>+91 9867684002</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
-                    <MapPin className="w-5 h-5 text-primary" />
-                    <span>Thane, Maharashtra, India</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card/50 backdrop-blur-sm border-border/50">
-                <CardHeader>
-                  <CardTitle className="text-xl text-foreground">Response Time</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    I typically respond to messages within <span className="text-primary font-semibold">24 hours</span>.
-                    For urgent matters, feel free to call directly.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Contact Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 w-full">
+          {/* Contact Information */}
+          <div className="space-y-3 sm:space-y-4">
             <Card className="bg-card/50 backdrop-blur-sm border-border/50">
-              <CardHeader>
-                <CardTitle className="text-2xl text-foreground">Send Message</CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  Fill out the form below and I'll get back to you as soon as possible.
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-sm sm:text-base md:text-lg text-foreground">Let's Connect</CardTitle>
+                <CardDescription className="text-xs sm:text-sm text-muted-foreground">
+                  Ready to turn your ideas into reality? Reach out and let's start building.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Name</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="bg-background/50"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="your.email@example.com"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="bg-background/50"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      placeholder="What's this about?"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-background/50"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell me about your project or idea..."
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={6}
-                      className="bg-background/50 resize-none"
-                    />
-                  </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full" 
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current mr-2" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
+              <CardContent className="space-y-2 sm:space-y-3 pt-0">
+                <div className="flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-foreground transition-colors text-xs sm:text-sm">
+                  <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+                  <span>musteryay@gmail.com</span>
+                </div>
+                <div className="flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-foreground transition-colors text-xs sm:text-sm">
+                  <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+                  <span>+91 9867684002</span>
+                </div>
+                <div className="flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-foreground transition-colors text-xs sm:text-sm">
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+                  <span>Thane, Maharashtra, India</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur-sm border-border/50">
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-sm sm:text-base md:text-lg text-foreground">Response Time</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  I typically respond within <span className="text-primary font-semibold">24 hours</span>.
+                </p>
               </CardContent>
             </Card>
           </div>
+
+          {/* Contact Form */}
+          <Card className="bg-card/50 backdrop-blur-sm border-border/50">
+            <CardHeader className="pb-2 sm:pb-3">
+              <CardTitle className="text-sm sm:text-base md:text-lg text-foreground">Send Message</CardTitle>
+              <CardDescription className="text-xs sm:text-sm text-muted-foreground">
+                Fill out the form below and I'll get back to you ASAP.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-xs sm:text-sm">Name</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="bg-background/50 h-8 sm:h-9 text-xs sm:text-sm"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="email" className="text-xs sm:text-sm">Email</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="your.email@example.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="bg-background/50 h-8 sm:h-9 text-xs sm:text-sm"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="subject" className="text-xs sm:text-sm">Subject</Label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    placeholder="What's this about?"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                    className="bg-background/50 h-8 sm:h-9 text-xs sm:text-sm"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="message" className="text-xs sm:text-sm">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell me about your project or idea..."
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={3}
+                    className="bg-background/50 resize-none text-xs sm:text-sm"
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full h-8 sm:h-9 text-xs sm:text-sm" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-current mr-2" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                      Send Message
+                    </>
+                  )}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
