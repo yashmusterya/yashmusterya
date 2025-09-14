@@ -118,6 +118,7 @@ All colors MUST be HSL.
     position: fixed;
     top: 0;
     left: 0;
+    font-size: clamp(14px, 1.5vw, 18px);
   }
 
   body {
@@ -200,26 +201,28 @@ All colors MUST be HSL.
 
   /* Book styles */
   .book-container {
-    perspective: 2500px;
+    perspective: 2000px;
     transform-style: preserve-3d;
     @apply relative w-full h-full flex items-center justify-center;
-    padding: 20px;
+    padding: clamp(8px, 2vw, 20px);
   }
 
   .book {
     @apply relative;
-    width: min(95vw, 1200px);
-    height: min(85vh, 700px);
-    background: linear-gradient(145deg, #f8f6f0, #ffffff);
-    border-radius: 20px;
+    width: min(98vw, 1400px);
+    height: min(92vh, 800px);
+    background: linear-gradient(145deg, hsl(var(--cream)), hsl(var(--warm-white)));
+    border-radius: clamp(12px, 2vw, 24px);
     box-shadow: 
-      0 25px 80px rgba(0, 0, 0, 0.25),
-      0 0 0 1px rgba(255, 255, 255, 0.05),
-      inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+      0 20px 60px hsl(var(--deep-brown) / 0.3),
+      0 5px 20px hsl(var(--deep-brown) / 0.2),
+      inset 0 1px 0 hsl(var(--warm-white)),
+      0 0 0 1px hsl(var(--border));
     transform-style: preserve-3d;
     position: relative;
     display: flex;
     overflow: hidden;
+    transform: rotateX(2deg) rotateY(-1deg);
   }
 
   .book::before {
@@ -237,14 +240,15 @@ All colors MUST be HSL.
 
   .book-page {
     @apply flex-1 flex flex-col justify-center items-center relative;
-    background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+    background: linear-gradient(135deg, hsl(var(--warm-white)) 0%, hsl(var(--cream)) 100%);
     border: none;
     transform-origin: left center;
     backface-visibility: hidden;
     overflow: hidden;
-    transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-    padding: clamp(16px, 4vw, 40px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: clamp(12px, 3vw, 32px);
     position: relative;
+    min-height: 100%;
   }
 
   .book-page::before {
@@ -258,8 +262,10 @@ All colors MUST be HSL.
   }
 
   .book-page.left {
-    border-radius: 20px 0 0 20px;
-    box-shadow: inset -3px 0 10px rgba(0,0,0,0.1);
+    border-radius: clamp(12px, 2vw, 24px) 0 0 clamp(12px, 2vw, 24px);
+    box-shadow: 
+      inset -3px 0 15px hsl(var(--deep-brown) / 0.1),
+      inset 0 0 20px hsl(var(--gold) / 0.05);
   }
 
   .book-page.left::before {
@@ -267,8 +273,10 @@ All colors MUST be HSL.
   }
 
   .book-page.right {
-    border-radius: 0 20px 20px 0;
-    box-shadow: inset 3px 0 10px rgba(0,0,0,0.1);
+    border-radius: 0 clamp(12px, 2vw, 24px) clamp(12px, 2vw, 24px) 0;
+    box-shadow: 
+      inset 3px 0 15px hsl(var(--deep-brown) / 0.1),
+      inset 0 0 20px hsl(var(--gold) / 0.05);
     transform-origin: right center;
   }
 
@@ -301,80 +309,80 @@ All colors MUST be HSL.
   }
 
   .book-page.page-turn {
-    animation: realistic-page-flip 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: realistic-page-flip 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     transform-style: preserve-3d;
     z-index: 10;
   }
 
   @keyframes realistic-page-flip {
     0% {
-      transform: rotateY(0deg) rotateX(0deg);
+      transform: rotateY(0deg) rotateX(0deg) translateZ(0px);
       box-shadow: 
-        -10px 0 20px rgba(0,0,0,0.2),
-        inset 0 0 0 rgba(0,0,0,0);
+        -10px 0 25px hsl(var(--deep-brown) / 0.2),
+        0 0 30px hsl(var(--gold) / 0.1);
     }
-    25% {
-      transform: rotateY(-25deg) rotateX(-2deg);
+    15% {
+      transform: rotateY(-15deg) rotateX(-1deg) translateZ(10px);
       box-shadow: 
-        -15px 5px 30px rgba(0,0,0,0.3),
-        inset -5px 0 10px rgba(0,0,0,0.1);
+        -20px 8px 40px hsl(var(--deep-brown) / 0.35),
+        inset -8px 0 15px hsl(var(--deep-brown) / 0.1);
     }
     50% {
-      transform: rotateY(-90deg) rotateX(-5deg);
+      transform: rotateY(-90deg) rotateX(-3deg) translateZ(20px);
       box-shadow: 
-        0 10px 40px rgba(0,0,0,0.4),
-        inset -10px 0 20px rgba(0,0,0,0.2);
+        0 15px 60px hsl(var(--deep-brown) / 0.5),
+        inset -15px 0 30px hsl(var(--deep-brown) / 0.25);
     }
-    75% {
-      transform: rotateY(-155deg) rotateX(-2deg);
+    85% {
+      transform: rotateY(-165deg) rotateX(-1deg) translateZ(10px);
       box-shadow: 
-        15px 5px 30px rgba(0,0,0,0.3),
-        inset 5px 0 10px rgba(0,0,0,0.1);
+        20px 8px 40px hsl(var(--deep-brown) / 0.35),
+        inset 8px 0 15px hsl(var(--deep-brown) / 0.1);
     }
     100% {
-      transform: rotateY(-180deg) rotateX(0deg);
+      transform: rotateY(-180deg) rotateX(0deg) translateZ(0px);
       box-shadow: 
-        10px 0 20px rgba(0,0,0,0.2),
-        inset 0 0 0 rgba(0,0,0,0);
+        10px 0 25px hsl(var(--deep-brown) / 0.2),
+        0 0 30px hsl(var(--gold) / 0.1);
     }
   }
 
   .book-page.page-flip-back {
-    animation: realistic-page-flip-back 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: realistic-page-flip-back 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     transform-style: preserve-3d;
     z-index: 10;
   }
 
   @keyframes realistic-page-flip-back {
     0% {
-      transform: rotateY(-180deg) rotateX(0deg);
+      transform: rotateY(-180deg) rotateX(0deg) translateZ(0px);
       box-shadow: 
-        10px 0 20px rgba(0,0,0,0.2),
-        inset 0 0 0 rgba(0,0,0,0);
+        10px 0 25px hsl(var(--deep-brown) / 0.2),
+        0 0 30px hsl(var(--gold) / 0.1);
     }
-    25% {
-      transform: rotateY(-155deg) rotateX(2deg);
+    15% {
+      transform: rotateY(-165deg) rotateX(1deg) translateZ(10px);
       box-shadow: 
-        15px -5px 30px rgba(0,0,0,0.3),
-        inset 5px 0 10px rgba(0,0,0,0.1);
+        20px -8px 40px hsl(var(--deep-brown) / 0.35),
+        inset 8px 0 15px hsl(var(--deep-brown) / 0.1);
     }
     50% {
-      transform: rotateY(-90deg) rotateX(5deg);
+      transform: rotateY(-90deg) rotateX(3deg) translateZ(20px);
       box-shadow: 
-        0 -10px 40px rgba(0,0,0,0.4),
-        inset 10px 0 20px rgba(0,0,0,0.2);
+        0 -15px 60px hsl(var(--deep-brown) / 0.5),
+        inset 15px 0 30px hsl(var(--deep-brown) / 0.25);
     }
-    75% {
-      transform: rotateY(-25deg) rotateX(2deg);
+    85% {
+      transform: rotateY(-15deg) rotateX(1deg) translateZ(10px);
       box-shadow: 
-        -15px -5px 30px rgba(0,0,0,0.3),
-        inset -5px 0 10px rgba(0,0,0,0.1);
+        -20px -8px 40px hsl(var(--deep-brown) / 0.35),
+        inset -8px 0 15px hsl(var(--deep-brown) / 0.1);
     }
     100% {
-      transform: rotateY(0deg) rotateX(0deg);
+      transform: rotateY(0deg) rotateX(0deg) translateZ(0px);
       box-shadow: 
-        -10px 0 20px rgba(0,0,0,0.2),
-        inset 0 0 0 rgba(0,0,0,0);
+        -10px 0 25px hsl(var(--deep-brown) / 0.2),
+        0 0 30px hsl(var(--gold) / 0.1);
     }
   }
 
