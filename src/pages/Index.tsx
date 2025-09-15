@@ -11,13 +11,15 @@ import { AwardsPage } from '@/components/pages/AwardsPage';
 import { LinksPage } from '@/components/pages/LinksPage';
 import { ContactPage } from '@/components/pages/ContactPage';
 
+import { ClosingPage } from '@/components/pages/ClosingPage';
+
 // Organize pages into pairs for the two-page layout
 const pageGroups = [
   { left: { name: 'Cover', component: CoverPage }, right: { name: 'About', component: AboutPage } },
   { left: { name: 'Skills', component: SkillsPage }, right: { name: 'Experience', component: ExperiencePage } },
   { left: { name: 'Projects', component: ProjectsPage }, right: { name: 'Education', component: EducationPage } },
   { left: { name: 'Awards', component: AwardsPage }, right: { name: 'Links', component: LinksPage } },
-  { left: { name: 'Contact', component: ContactPage }, right: null },
+  { left: { name: 'Contact', component: ContactPage }, right: { name: 'Thank You', component: ClosingPage } },
 ];
 
 const Index = () => {

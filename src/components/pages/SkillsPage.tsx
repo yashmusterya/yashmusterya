@@ -17,36 +17,33 @@ const categories = ['Programming', 'Backend', 'AI/ML', 'Frontend', 'Database', '
 
 export const SkillsPage = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-3 sm:p-4 md:p-6">
-      <div className="max-w-4xl w-full space-y-4 sm:space-y-6">
-        <div className="text-center space-y-2 sm:space-y-3">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">Skills & Expertise</h1>
-          <div className="h-1 w-24 bg-gradient-accent mx-auto rounded-full shadow-glow"></div>
-          <p className="text-muted-foreground text-lg">Technologies I work with</p>
+    <div className="w-full h-full flex items-center justify-center p-2">
+      <div className="max-w-2xl w-full space-y-3">
+        <div className="text-center space-y-1">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary">Skills & Expertise</h1>
+          <div className="h-0.5 w-16 bg-gradient-accent mx-auto rounded-full"></div>
         </div>
 
-        <div className="space-y-8">
-          {categories.map((category) => {
+        <div className="grid grid-cols-2 gap-2">
+          {categories.slice(0, 4).map((category) => {
             const categorySkills = skills.filter(skill => skill.category === category);
             if (categorySkills.length === 0) return null;
 
             return (
-              <div key={category} className="bg-gradient-card p-6 rounded-2xl shadow-book border border-border/30">
-                <h3 className="text-xl font-semibold text-primary mb-4 flex items-center gap-2">
-                  <Badge variant="outline" className="border-primary/30 text-primary">
-                    {category}
-                  </Badge>
+              <div key={category} className="bg-gradient-card p-3 rounded-lg border border-border/20">
+                <h3 className="text-sm font-semibold text-primary mb-2 text-center">
+                  {category}
                 </h3>
-                <div className="grid gap-4">
-                  {categorySkills.map((skill) => (
-                    <div key={skill.name} className="space-y-2">
+                <div className="space-y-1">
+                  {categorySkills.slice(0, 3).map((skill) => (
+                    <div key={skill.name} className="space-y-1">
                       <div className="flex justify-between items-center">
-                        <span className="font-medium text-foreground">{skill.name}</span>
-                        <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                        <span className="text-xs font-medium text-foreground">{skill.name}</span>
+                        <span className="text-xs text-muted-foreground">{skill.level}%</span>
                       </div>
-                      <div className="w-full bg-navy-medium rounded-full h-2 overflow-hidden">
+                      <div className="w-full bg-secondary/30 rounded-full h-1.5">
                         <div 
-                          className="h-full bg-gradient-accent rounded-full shadow-glow transition-all duration-1000 ease-out"
+                          className="h-full bg-gradient-accent rounded-full transition-all duration-1000 ease-out"
                           style={{ width: `${skill.level}%` }}
                         />
                       </div>
@@ -58,11 +55,33 @@ export const SkillsPage = () => {
           })}
         </div>
 
-        <div className="bg-gradient-card p-6 rounded-2xl shadow-book border border-border/30 text-center">
-          <h3 className="text-xl font-semibold text-primary mb-4">Always Learning</h3>
-          <p className="text-muted-foreground">
-            Passionate about staying current with emerging technologies and continuously expanding my skill set 
-            through hands-on projects and formal education.
+        <div className="grid grid-cols-3 gap-2">
+          {categories.slice(4).map((category) => {
+            const categorySkills = skills.filter(skill => skill.category === category);
+            if (categorySkills.length === 0) return null;
+
+            return (
+              <div key={category} className="bg-gradient-card p-2 rounded-lg border border-border/20">
+                <h4 className="text-xs font-semibold text-primary mb-1 text-center">
+                  {category}
+                </h4>
+                <div className="space-y-1">
+                  {categorySkills.slice(0, 2).map((skill) => (
+                    <div key={skill.name} className="text-center">
+                      <div className="text-xs font-medium text-foreground">{skill.name}</div>
+                      <div className="text-xs text-primary font-semibold">{skill.level}%</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="bg-gradient-card p-3 rounded-lg border border-border/20 text-center">
+          <h3 className="text-sm font-semibold text-primary mb-1">Always Learning</h3>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Passionate about staying current with emerging technologies and continuously expanding my skill set.
           </p>
         </div>
       </div>
