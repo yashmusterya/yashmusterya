@@ -31,7 +31,7 @@ const Index = () => {
     setTimeout(() => {
       setCurrentGroup(newGroup);
       setIsFlipping(false);
-    }, 600);
+    }, 350);
   };
 
   // Scroll navigation
@@ -52,7 +52,7 @@ const Index = () => {
       
       setTimeout(() => {
         isScrolling = false;
-      }, 800);
+      }, 400);
     };
 
     const handleKeyPress = (e: KeyboardEvent) => {
