@@ -17,7 +17,7 @@ const pageGroups = [
   { left: { name: 'Skills', component: SkillsPage }, right: { name: 'Experience', component: ExperiencePage } },
   { left: { name: 'Projects', component: ProjectsPage }, right: { name: 'Education', component: EducationPage } },
   { left: { name: 'Awards', component: AwardsPage }, right: { name: 'Links', component: LinksPage } },
-  { left: { name: 'Contact', component: ContactPage }, right: { name: 'Contact', component: ContactPage } },
+  { left: { name: 'Contact', component: ContactPage }, right: null },
 ];
 
 const Index = () => {
@@ -73,8 +73,8 @@ const Index = () => {
   }, [currentGroup, isFlipping]);
 
   const currentPageGroup = pageGroups[currentGroup];
-  const LeftPageComponent = currentPageGroup.left.component;
-  const RightPageComponent = currentPageGroup.right.component;
+  const LeftPageComponent = currentPageGroup.left?.component;
+  const RightPageComponent = currentPageGroup.right?.component;
 
   return (
     <main className="relative h-screen w-screen bg-gradient-primary overflow-hidden">
@@ -89,14 +89,14 @@ const Index = () => {
               isFlipping ? 'page-turn' : ''
             }`}
           >
-            <LeftPageComponent />
+            {LeftPageComponent && <LeftPageComponent />}
           </div>
           <div 
             className={`book-page right ${
               isFlipping ? 'page-flip-back' : ''
             }`}
           >
-            <RightPageComponent />
+            {RightPageComponent && <RightPageComponent />}
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@ const Index = () => {
         currentPage={currentGroup}
         totalPages={pageGroups.length}
         onPageChange={handlePageChange}
-        pageNames={pageGroups.map((group, index) => `${group.left.name} & ${group.right.name}`)}
+        pageNames={pageGroups.map((group, index) => group.right ? `${group.left.name} & ${group.right.name}` : group.left.name)}
       />
 
       {/* Instructions */}
