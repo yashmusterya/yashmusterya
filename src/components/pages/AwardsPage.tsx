@@ -49,46 +49,46 @@ const getCategoryColor = (category: string) => {
 
 export const AwardsPage = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-3 sm:p-4 md:p-6">
-      <div className="max-w-4xl w-full space-y-4 sm:space-y-6">
-        <div className="text-center space-y-2 sm:space-y-3">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">Awards & Recognition</h1>
-          <div className="h-1 w-24 bg-gradient-accent mx-auto rounded-full shadow-glow"></div>
-          <p className="text-muted-foreground text-lg">Celebrating achievements and milestones</p>
+    <div className="w-full h-full flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-y-auto">
+      <div className="max-w-3xl w-full space-y-3 sm:space-y-4">
+        <div className="text-center space-y-1 sm:space-y-2">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary">Awards & Recognition</h1>
+          <div className="h-0.5 w-16 bg-gradient-accent mx-auto rounded-full shadow-glow"></div>
+          <p className="text-muted-foreground text-sm">Celebrating achievements</p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-3 sm:space-y-4">
           {awards.map((award, index) => {
             const IconComponent = award.icon;
             return (
               <div
                 key={index}
-                className="bg-gradient-card p-6 md:p-8 rounded-2xl shadow-book border border-border/30 hover:shadow-glow/20 transition-all duration-300"
+                className="bg-gradient-card p-3 sm:p-4 rounded-xl shadow-book border border-border/30 hover:shadow-glow/20 transition-all duration-300"
               >
-                <div className="space-y-6">
-                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                    <div className="flex items-start gap-4">
-                      <div className={`p-3 rounded-full bg-navy-medium/50 border border-border/30 ${award.color}`}>
-                        <IconComponent className="h-8 w-8" />
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-3">
+                      <div className={`p-2 rounded-full bg-navy-medium/50 border border-border/30 ${award.color}`}>
+                        <IconComponent className="h-5 w-5 sm:h-6 sm:w-6" />
                       </div>
-                      <div className="space-y-2">
-                        <h3 className="text-2xl font-bold text-primary">{award.title}</h3>
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-2 text-foreground">
+                      <div className="space-y-1">
+                        <h3 className="text-lg sm:text-xl font-bold text-primary">{award.title}</h3>
+                        <div className="space-y-0.5">
+                          <div className="flex items-center gap-2 text-foreground text-sm">
                             <span className="font-semibold">{award.institution}</span>
                             <span className="text-muted-foreground">•</span>
                             <span className="text-muted-foreground">{award.year}</span>
                           </div>
-                          <div className="text-blue-soft font-medium">{award.program}</div>
+                          <div className="text-blue-soft font-medium text-sm">{award.program}</div>
                         </div>
                       </div>
                     </div>
-                    <Badge className={getCategoryColor(award.category)}>
+                    <Badge className={`${getCategoryColor(award.category)} text-xs`}>
                       {award.category}
                     </Badge>
                   </div>
 
-                  <p className="text-muted-foreground text-lg leading-relaxed pl-16 md:pl-20">
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed pl-8 sm:pl-11">
                     {award.description}
                   </p>
                 </div>
@@ -97,29 +97,28 @@ export const AwardsPage = () => {
           })}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
-          <div className="text-center space-y-3 p-6 bg-gradient-card rounded-2xl shadow-book border border-border/30">
-            <div className="text-3xl font-bold text-primary">3+</div>
-            <div className="text-muted-foreground">Awards Received</div>
-            <div className="text-sm text-blue-soft">Academic Excellence</div>
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+          <div className="text-center space-y-1 p-2 sm:p-3 bg-gradient-card rounded-xl shadow-book border border-border/30">
+            <div className="text-xl sm:text-2xl font-bold text-primary">3+</div>
+            <div className="text-muted-foreground text-xs">Awards</div>
+            <div className="text-xs text-blue-soft">Excellence</div>
           </div>
-          <div className="text-center space-y-3 p-6 bg-gradient-card rounded-2xl shadow-book border border-border/30">
-            <div className="text-3xl font-bold text-primary">S Grade</div>
-            <div className="text-muted-foreground">Highest Achievement</div>
-            <div className="text-sm text-blue-soft">IIT Madras</div>
+          <div className="text-center space-y-1 p-2 sm:p-3 bg-gradient-card rounded-xl shadow-book border border-border/30">
+            <div className="text-xl sm:text-2xl font-bold text-primary">S Grade</div>
+            <div className="text-muted-foreground text-xs">Highest</div>
+            <div className="text-xs text-blue-soft">IIT Madras</div>
           </div>
-          <div className="text-center space-y-3 p-6 bg-gradient-card rounded-2xl shadow-book border border-border/30">
-            <div className="text-3xl font-bold text-primary">2024</div>
-            <div className="text-muted-foreground">Recognition Year</div>
-            <div className="text-sm text-blue-soft">Multiple Awards</div>
+          <div className="text-center space-y-1 p-2 sm:p-3 bg-gradient-card rounded-xl shadow-book border border-border/30">
+            <div className="text-xl sm:text-2xl font-bold text-primary">2024</div>
+            <div className="text-muted-foreground text-xs">Recognition</div>
+            <div className="text-xs text-blue-soft">Year</div>
           </div>
         </div>
 
-        <div className="bg-gradient-card p-6 rounded-2xl shadow-book border border-border/30 text-center">
-          <h3 className="text-xl font-semibold text-primary mb-4">Pursuit of Excellence</h3>
-          <p className="text-muted-foreground">
-            These recognitions reflect my commitment to academic excellence and continuous improvement. 
-            They motivate me to keep pushing boundaries and achieving new milestones in my learning journey.
+        <div className="bg-gradient-card p-3 sm:p-4 rounded-xl shadow-book border border-border/30 text-center">
+          <h3 className="text-lg font-semibold text-primary mb-2">Pursuit of Excellence</h3>
+          <p className="text-muted-foreground text-xs sm:text-sm">
+            These recognitions reflect commitment to academic excellence and continuous improvement.
           </p>
         </div>
       </div>

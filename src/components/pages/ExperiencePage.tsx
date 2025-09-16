@@ -62,65 +62,65 @@ const getTypeColor = (type: string) => {
 
 export const ExperiencePage = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-3 sm:p-4 md:p-6">
-      <div className="max-w-4xl w-full space-y-4 sm:space-y-6">
-        <div className="text-center space-y-2 sm:space-y-3">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">Experience</h1>
-          <div className="h-1 w-24 bg-gradient-accent mx-auto rounded-full shadow-glow"></div>
-          <p className="text-muted-foreground text-lg">Professional journey and contributions</p>
+    <div className="w-full h-full flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-y-auto">
+      <div className="max-w-3xl w-full space-y-3 sm:space-y-4">
+        <div className="text-center space-y-1 sm:space-y-2">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary">Experience</h1>
+          <div className="h-0.5 w-16 bg-gradient-accent mx-auto rounded-full shadow-glow"></div>
+          <p className="text-muted-foreground text-sm">Professional journey</p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-3 sm:space-y-4">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-gradient-card p-6 md:p-8 rounded-2xl shadow-book border border-border/30 hover:shadow-glow/20 transition-all duration-300"
+              className="bg-gradient-card p-3 sm:p-4 md:p-5 rounded-xl shadow-book border border-border/30 hover:shadow-glow/20 transition-all duration-300"
             >
-              <div className="space-y-4">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-bold text-primary">{exp.title}</h3>
-                    <div className="flex items-center gap-2 text-foreground">
-                      <Building className="h-4 w-4 text-primary" />
+              <div className="space-y-2 sm:space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="space-y-1">
+                    <h3 className="text-lg sm:text-xl font-bold text-primary">{exp.title}</h3>
+                    <div className="flex items-center gap-2 text-foreground text-sm">
+                      <Building className="h-3 w-3 text-primary" />
                       <span className="font-semibold">{exp.company}</span>
                     </div>
                   </div>
-                  <Badge className={getTypeColor(exp.type)}>
+                  <Badge className={`${getTypeColor(exp.type)} text-xs`}>
                     {exp.type}
                   </Badge>
                 </div>
 
-                <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
                   <div className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4" />
+                    <Calendar className="h-3 w-3" />
                     <span>{exp.period}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <MapPin className="h-4 w-4" />
+                    <MapPin className="h-3 w-3" />
                     <span>{exp.location}</span>
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground">Key Responsibilities:</h4>
-                  <ul className="space-y-2">
-                    {exp.responsibilities.map((responsibility, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm text-foreground">Key Responsibilities:</h4>
+                  <ul className="space-y-1">
+                    {exp.responsibilities.slice(0, 4).map((responsibility, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <div className="w-1 h-1 bg-primary rounded-full mt-1.5 flex-shrink-0" />
                         <span>{responsibility}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-foreground">Technologies & Skills:</h4>
-                  <div className="flex flex-wrap gap-2">
+                <div className="space-y-1">
+                  <h4 className="font-semibold text-sm text-foreground">Technologies:</h4>
+                  <div className="flex flex-wrap gap-1">
                     {exp.technologies.map((tech, idx) => (
                       <Badge
                         key={idx}
                         variant="outline"
-                        className="border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-colors"
+                        className="border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-colors text-xs px-2 py-0"
                       >
                         {tech}
                       </Badge>
