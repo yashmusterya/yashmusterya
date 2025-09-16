@@ -4,22 +4,23 @@ import { BookNavigation } from '@/components/BookNavigation';
 import { CoverPage } from '@/components/pages/CoverPage';
 import { AboutPage } from '@/components/pages/AboutPage';
 import { SkillsPage } from '@/components/pages/SkillsPage';
-import { ExperiencePage } from '@/components/pages/ExperiencePage';
+import { ProfessionalExperiencePage } from '@/components/pages/ProfessionalExperiencePage';
+import { CommunityLeadershipPage } from '@/components/pages/CommunityLeadershipPage';
 import { ProjectsPage } from '@/components/pages/ProjectsPage';
 import { EducationPage } from '@/components/pages/EducationPage';
 import { AwardsPage } from '@/components/pages/AwardsPage';
 import { LinksPage } from '@/components/pages/LinksPage';
 import { ContactPage } from '@/components/pages/ContactPage';
-
 import { ClosingPage } from '@/components/pages/ClosingPage';
 
 // Organize pages into pairs for the two-page layout
 const pageGroups = [
   { left: { name: 'Cover', component: CoverPage }, right: { name: 'About', component: AboutPage } },
-  { left: { name: 'Skills', component: SkillsPage }, right: { name: 'Experience', component: ExperiencePage } },
-  { left: { name: 'Projects', component: ProjectsPage }, right: { name: 'Education', component: EducationPage } },
-  { left: { name: 'Awards', component: AwardsPage }, right: { name: 'Links', component: LinksPage } },
-  { left: { name: 'Contact', component: ContactPage }, right: { name: 'Thank You', component: ClosingPage } },
+  { left: { name: 'Skills', component: SkillsPage }, right: { name: 'Professional', component: ProfessionalExperiencePage } },
+  { left: { name: 'Community', component: CommunityLeadershipPage }, right: { name: 'Projects', component: ProjectsPage } },
+  { left: { name: 'Education', component: EducationPage }, right: { name: 'Awards', component: AwardsPage } },
+  { left: { name: 'Links', component: LinksPage }, right: { name: 'Contact', component: ContactPage } },
+  { left: { name: 'Thank You', component: ClosingPage }, right: null },
 ];
 
 const Index = () => {
