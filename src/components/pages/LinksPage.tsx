@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Github, Linkedin, Code, ExternalLink, Globe, User } from 'lucide-react';
 
+
 const socialLinks = [
   {
     name: 'GitHub',
@@ -10,7 +11,7 @@ const socialLinks = [
     icon: Github,
     color: 'hover:text-gray-300 hover:border-gray-300',
     bgColor: 'bg-gray-900/20',
-    stats: '50+ Repositories'
+    stats: '5+ Repositories'
   },
   {
     name: 'LeetCode',

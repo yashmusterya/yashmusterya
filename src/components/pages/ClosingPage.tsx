@@ -41,7 +41,7 @@ export const ClosingPage = () => {
         </div>
 
         <div className="text-xs text-muted-foreground/70 font-mono">
-          © 2024 Yash Musterya • Designed & Developed with ❤️
+          © 2025 Yash Musterya • Designed & Developed with ❤️
         </div>
       </div>
     </div>
