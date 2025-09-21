@@ -120,6 +120,7 @@ All colors MUST be HSL.
     left: 0;
     font-size: clamp(12px, 1.2vw, 16px);
     font-family: 'Georgia', 'Times New Roman', serif;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23C8B88B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"/></svg>') 12 12, auto;
   }
 
   body {
@@ -132,6 +133,11 @@ All colors MUST be HSL.
     margin: 0;
     padding: 0;
     overflow: hidden;
+  }
+
+  /* Professional cursor variants */
+  button, a, .cursor-pointer {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23C8B88B" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4m-6 0H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4m2 5l4-4 4 4M12 19V9"/></svg>') 10 10, pointer !important;
   }
 
   /* Particle animation background */
@@ -205,13 +211,23 @@ All colors MUST be HSL.
     perspective: 3000px;
     transform-style: preserve-3d;
     @apply relative w-full h-full flex items-center justify-center;
-    padding: clamp(10px, 2.5vw, 30px);
+    padding: clamp(20px, 3vw, 40px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95vw;
+    height: 90vh;
+    max-width: 1600px;
+    max-height: 1000px;
   }
 
   .book {
     @apply relative;
-    width: min(95vw, 1200px);
-    height: min(90vh, 700px);
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+    max-height: 900px;
     background: 
       linear-gradient(145deg, #8B4513 0%, #A0522D 15%, #CD853F  30%, #DEB887  100%);
     border-radius: clamp(8px, 1.5vw, 16px);
@@ -256,7 +272,7 @@ All colors MUST be HSL.
   }
 
   .book-page {
-    @apply flex-1 flex flex-col justify-center items-center relative;
+    @apply flex-1 flex flex-col justify-start items-center relative;
     background: 
       linear-gradient(135deg, 
         #FFFEF7 0%, 
@@ -268,12 +284,32 @@ All colors MUST be HSL.
     border: none;
     transform-origin: center center;
     backface-visibility: hidden;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: clamp(16px, 4vw, 40px);
+    padding: clamp(20px, 4vw, 40px);
     position: relative;
     min-height: 100%;
     box-shadow: inset 0 0 30px rgba(139, 69, 19, 0.03);
+  }
+
+  /* Enhanced scrollbar for pages */
+  .book-page::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .book-page::-webkit-scrollbar-track {
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 3px;
+  }
+
+  .book-page::-webkit-scrollbar-thumb {
+    background: rgba(139, 69, 19, 0.3);
+    border-radius: 3px;
+  }
+
+  .book-page::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 69, 19, 0.5);
   }
 
   .book-page::before {

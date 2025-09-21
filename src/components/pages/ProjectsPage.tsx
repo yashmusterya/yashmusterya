@@ -63,24 +63,24 @@ const getStatusColor = (status: string) => {
 
 export const ProjectsPage = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-3 sm:p-4 md:p-6">
+    <div className="w-full h-full flex items-start justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
       <div className="max-w-4xl w-full space-y-4 sm:space-y-6">
         <div className="text-center space-y-2 sm:space-y-3">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">Projects</h1>
-          <div className="h-1 w-24 bg-gradient-accent mx-auto rounded-full shadow-glow"></div>
-          <p className="text-muted-foreground text-lg">Showcasing technical expertise through real-world solutions</p>
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary">Projects</h1>
+          <div className="h-0.5 w-16 bg-gradient-accent mx-auto rounded-full shadow-glow"></div>
+          <p className="text-muted-foreground text-sm">Showcasing technical expertise through real-world solutions</p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-4 sm:space-y-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gradient-card p-6 md:p-8 rounded-2xl shadow-book border border-border/30 hover:shadow-glow/20 transition-all duration-300"
+              className="bg-gradient-card p-4 sm:p-5 md:p-6 rounded-xl shadow-book border border-border/30 hover:shadow-glow/20 transition-all duration-300"
             >
-              <div className="space-y-6">
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-bold text-primary">{project.title}</h3>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4">
+                  <div className="space-y-1 sm:space-y-2">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-primary">{project.title}</h3>
                     <Badge variant="outline" className="border-border/50 text-muted-foreground w-fit">
                       {project.type}
                     </Badge>
@@ -90,13 +90,13 @@ export const ProjectsPage = () => {
                   </Badge>
                 </div>
 
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground">Key Features:</h4>
-                  <div className="grid md:grid-cols-2 gap-2">
+                <div className="space-y-2 sm:space-y-3">
+                  <h4 className="font-semibold text-sm sm:text-base text-foreground">Key Features:</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2">
                     {project.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-muted-foreground">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
@@ -106,14 +106,14 @@ export const ProjectsPage = () => {
                   </div>
                 </div>
 
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-foreground">Technologies Used:</h4>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm sm:text-base text-foreground">Technologies Used:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, idx) => (
                       <Badge
                         key={idx}
                         variant="outline"
-                        className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-colors"
+                        className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-colors text-xs"
                       >
                         {tech}
                       </Badge>
@@ -121,7 +121,7 @@ export const ProjectsPage = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-3 pt-4">
+                <div className="flex gap-2 sm:gap-3 pt-2 sm:pt-4">
                   <Button 
                     className="glow-hover bg-gradient-accent hover:shadow-glow border-0"
                     size="sm"
@@ -145,9 +145,9 @@ export const ProjectsPage = () => {
           ))}
         </div>
 
-        <div className="bg-gradient-card p-6 rounded-2xl shadow-book border border-border/30 text-center">
-          <h3 className="text-xl font-semibold text-primary mb-4">More Projects Coming Soon</h3>
-          <p className="text-muted-foreground">
+        <div className="bg-gradient-card p-4 sm:p-6 rounded-xl shadow-book border border-border/30 text-center">
+          <h3 className="text-lg sm:text-xl font-semibold text-primary mb-2 sm:mb-4">More Projects Coming Soon</h3>
+          <p className="text-muted-foreground text-sm">
             Currently working on several exciting projects in AI/ML, cybersecurity, and web development. 
             Stay tuned for updates!
           </p>
