@@ -118,13 +118,14 @@ All colors MUST be HSL.
     position: fixed;
     top: 0;
     left: 0;
-    font-size: clamp(12px, 1.2vw, 16px);
+    font-size: clamp(14px, 1.4vw, 18px);
     font-family: 'Georgia', 'Times New Roman', serif;
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="%23C8B88B" stroke-width="2" opacity="0.8"/><circle cx="12" cy="12" r="2" fill="%23C8B88B" opacity="0.6"/></svg>') 12 12, auto;
   }
 
   body {
     @apply bg-background text-foreground font-montserrat;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="%23C8B88B" stroke-width="2" opacity="0.8"/><circle cx="12" cy="12" r="2" fill="%23C8B88B" opacity="0.6"/></svg>') 12 12, auto;
   }
 
   #root {
@@ -133,16 +134,17 @@ All colors MUST be HSL.
     margin: 0;
     padding: 0;
     overflow: hidden;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="%23C8B88B" stroke-width="2" opacity="0.8"/><circle cx="12" cy="12" r="2" fill="%23C8B88B" opacity="0.6"/></svg>') 12 12, auto;
   }
 
-  /* Custom circular cursor variants */
-  button, a, .cursor-pointer {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10" fill="none" stroke="%23C8B88B" stroke-width="2.5" opacity="0.9"/><circle cx="14" cy="14" r="3" fill="%23C8B88B" opacity="0.8"/></svg>') 14 14, pointer !important;
+  /* Universal custom cursor application */
+  *, *::before, *::after {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="%23C8B88B" stroke-width="2" opacity="0.8"/><circle cx="12" cy="12" r="2" fill="%23C8B88B" opacity="0.6"/></svg>') 12 12, auto !important;
   }
 
-  /* Hover effect for interactive elements */
-  button:hover, a:hover {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="none" stroke="%23DAA520" stroke-width="3" opacity="0.9"/><circle cx="16" cy="16" r="4" fill="%23DAA520" opacity="0.8"/></svg>') 16 16, pointer !important;
+  /* Interactive elements cursor */
+  button, a, .cursor-pointer, [role="button"], input, textarea, select {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10" fill="none" stroke="%23DAA520" stroke-width="2.5" opacity="0.9"/><circle cx="14" cy="14" r="3" fill="%23DAA520" opacity="0.8"/></svg>') 14 14, pointer !important;
   }
 
   /* Particle animation background */
@@ -211,47 +213,48 @@ All colors MUST be HSL.
     transition: all 0.3s ease;
   }
 
-  /* Book styles */
   .book-container {
     perspective: 3000px;
     transform-style: preserve-3d;
-    @apply relative w-full h-full flex items-center justify-center;
-    padding: clamp(20px, 3vw, 40px);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 95vw;
-    height: 90vh;
+    width: 92vw;
+    height: 88vh;
     max-width: 1600px;
     max-height: 1000px;
+    z-index: 10;
   }
 
   .book {
-    @apply relative;
+    position: relative;
     width: 100%;
     height: 100%;
-    max-width: 1400px;
-    max-height: 900px;
     background: 
-      linear-gradient(145deg, #8B4513 0%, #A0522D 15%, #CD853F  30%, #DEB887  100%);
-    border-radius: clamp(8px, 1.5vw, 16px);
+      linear-gradient(145deg, #8B4513 0%, #A0522D 15%, #CD853F 30%, #DEB887 100%);
+    border-radius: clamp(12px, 2vw, 20px);
     box-shadow: 
-      0 25px 80px rgba(0, 0, 0, 0.4),
-      0 10px 30px rgba(0, 0, 0, 0.3),
-      inset 0 2px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -2px 0 rgba(0, 0, 0, 0.2),
-      0 0 0 2px #654321;
+      0 30px 100px rgba(0, 0, 0, 0.5),
+      0 15px 50px rgba(0, 0, 0, 0.3),
+      inset 0 3px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -3px 0 rgba(0, 0, 0, 0.25),
+      0 0 0 3px #654321;
     transform-style: preserve-3d;
-    position: relative;
     display: flex;
     overflow: hidden;
-    transform: rotateX(5deg) rotateY(-2deg) translateZ(20px);
-    transition: transform 0.3s ease;
+    transform: rotateX(3deg) rotateY(-1deg) translateZ(25px);
+    transition: transform 0.4s ease;
   }
 
   .book:hover {
-    transform: rotateX(3deg) rotateY(-1deg) translateZ(30px);
+    transform: rotateX(1deg) rotateY(0deg) translateZ(35px);
+    box-shadow: 
+      0 35px 120px rgba(0, 0, 0, 0.6),
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      inset 0 3px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -3px 0 rgba(0, 0, 0, 0.3),
+      0 0 0 3px #654321;
   }
 
   .book::before {
@@ -277,44 +280,35 @@ All colors MUST be HSL.
   }
 
   .book-page {
-    @apply flex-1 flex flex-col justify-start items-center relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     background: 
       linear-gradient(135deg, 
         #FFFEF7 0%, 
-        #FFF8E7 20%, 
-        #F5F5DC 40%, 
-        #FAF0E6 60%, 
-        #FDF5E6 80%, 
+        #FFF8E7 25%, 
+        #F5F5DC 50%, 
+        #FAF0E6 75%, 
         #FFFACD 100%);
     border: none;
     transform-origin: center center;
     backface-visibility: hidden;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: clamp(20px, 4vw, 40px);
-    position: relative;
+    padding: clamp(24px, 4.5vw, 48px);
     min-height: 100%;
-    box-shadow: inset 0 0 30px rgba(139, 69, 19, 0.03);
+    box-shadow: inset 0 0 40px rgba(139, 69, 19, 0.04);
   }
 
-  /* Enhanced scrollbar for pages */
+  /* Remove all scrollbars */
   .book-page::-webkit-scrollbar {
-    width: 6px;
+    display: none;
   }
 
-  .book-page::-webkit-scrollbar-track {
-    background: rgba(139, 69, 19, 0.1);
-    border-radius: 3px;
-  }
-
-  .book-page::-webkit-scrollbar-thumb {
-    background: rgba(139, 69, 19, 0.3);
-    border-radius: 3px;
-  }
-
-  .book-page::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 69, 19, 0.5);
+  .book-page {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .book-page::before {
@@ -333,10 +327,10 @@ All colors MUST be HSL.
   }
 
   .book-page.left {
-    border-radius: clamp(8px, 1.5vw, 16px) 0 0 clamp(8px, 1.5vw, 16px);
+    border-radius: clamp(12px, 2vw, 20px) 0 0 clamp(12px, 2vw, 20px);
     box-shadow: 
-      inset -8px 0 25px rgba(139, 69, 19, 0.12),
-      inset 0 0 30px rgba(218, 165, 32, 0.08);
+      inset -10px 0 30px rgba(139, 69, 19, 0.15),
+      inset 0 0 40px rgba(218, 165, 32, 0.1);
     transform-origin: left center;
   }
 
@@ -345,10 +339,10 @@ All colors MUST be HSL.
   }
 
   .book-page.right {
-    border-radius: 0 clamp(8px, 1.5vw, 16px) clamp(8px, 1.5vw, 16px) 0;
+    border-radius: 0 clamp(12px, 2vw, 20px) clamp(12px, 2vw, 20px) 0;
     box-shadow: 
-      inset 8px 0 25px rgba(139, 69, 19, 0.12),
-      inset 0 0 30px rgba(218, 165, 32, 0.08);
+      inset 10px 0 30px rgba(139, 69, 19, 0.15),
+      inset 0 0 40px rgba(218, 165, 32, 0.1);
     transform-origin: right center;
   }
 
@@ -425,25 +419,25 @@ All colors MUST be HSL.
 
   .book-spine {
     position: absolute;
-    left: -35px;
-    top: -5px;
-    width: 35px;
-    height: 110%;
+    left: -40px;
+    top: -8px;
+    width: 40px;
+    height: 116%;
     background: 
       linear-gradient(to right, 
-        #5D4037 0%, 
-        #6D4C41 15%, 
-        #8D6E63 30%, 
-        #A1887F 50%, 
-        #8D6E63 70%, 
-        #6D4C41 85%, 
-        #5D4037 100%);
-    border-radius: 12px 0 0 12px;
+        #4A2C2A 0%, 
+        #5D4037 15%, 
+        #6D4C41 30%, 
+        #8D6E63 50%, 
+        #6D4C41 70%, 
+        #5D4037 85%, 
+        #4A2C2A 100%);
+    border-radius: 16px 0 0 16px;
     box-shadow: 
-      -8px 0 25px rgba(0, 0, 0, 0.4),
-      inset 2px 0 0 rgba(255, 255, 255, 0.1),
-      inset -2px 0 0 rgba(0, 0, 0, 0.2);
-    transform: rotateY(-5deg);
+      -12px 0 35px rgba(0, 0, 0, 0.5),
+      inset 3px 0 0 rgba(255, 255, 255, 0.15),
+      inset -3px 0 0 rgba(0, 0, 0, 0.25);
+    transform: rotateY(-6deg);
   }
 
   .book-spine::after {
@@ -453,11 +447,11 @@ All colors MUST be HSL.
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
     color: #FFD700;
-    font-size: clamp(8px, 0.8vw, 12px);
+    font-size: clamp(9px, 0.9vw, 14px);
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     white-space: nowrap;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     font-family: 'Georgia', serif;
   }
 }

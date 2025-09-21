@@ -45,8 +45,8 @@ const getTypeColor = (type: string) => {
 
 export const CommunityLeadershipPage = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-y-auto">
-      <div className="max-w-3xl w-full space-y-3 sm:space-y-4">
+    <div className="w-full h-full flex items-center justify-center p-2 sm:p-3 md:p-4">
+      <div className="max-w-3xl w-full h-full space-y-3 sm:space-y-4 flex flex-col justify-center">
         <div className="text-center space-y-1 sm:space-y-2">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary">Community & Leadership</h1>
           <div className="h-0.5 w-16 bg-gradient-accent mx-auto rounded-full shadow-glow"></div>
