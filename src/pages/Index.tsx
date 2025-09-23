@@ -59,6 +59,12 @@ const Index = () => {
     };
 
     const handleKeyPress = (e: KeyboardEvent) => {
+      // Ignore key events when user is typing in input fields
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+        return;
+      }
+      
       if (e.key === 'ArrowRight' || e.key === ' ') {
         handlePageChange(Math.min(pageGroups.length - 1, currentGroup + 1));
       } else if (e.key === 'ArrowLeft') {
