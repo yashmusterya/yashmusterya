@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
+# Project Readme 🚀
 
-## Project info
+<p align="center">
+  <img src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" alt="Vite Badge"/>
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React Badge"/>
+  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript Badge"/>
+  <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS Badge"/>
+  <img src="https://img.shields.io/badge/shadcn--ui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn-ui Badge"/>
+</p>
 
-**URL**: https://lovable.dev/projects/b546f229-cb7f-4d41-b1cf-5068cb7a8c7a
+> This repository contains the source code for the project. Below are the instructions for setting up the development environment, deploying the application, and more.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+This project is built with a modern, component-based frontend stack:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b546f229-cb7f-4d41-b1cf-5068cb7a8c7a) and start prompting.
+* **Framework:** [React](https://react.dev/)
+* **Build Tool:** [Vite](https://vitejs.dev/)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **UI Components:** [shadcn-ui](https://ui.shadcn.com/)
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## ⚙️ Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+There are several ways to set up and edit the application code.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Local Development Environment
 
-Follow these steps:
+To work on the project locally using your own IDE, you'll need to have [Node.js and npm](https://github.com/nvm-sh/nvm#installing-and-updating) installed.
+
+Follow these steps to get started:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# 1. Clone the repository to your local machine.
+#    Replace <YOUR_GIT_URL> with the URL from the "<> Code" button.
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# 2. Navigate into the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. Install the necessary dependencies.
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Start the local development server.
+#    This will open a preview in your browser that automatically reloads on changes.
 npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/b546f229-cb7f-4d41-b1cf-5068cb7a8c7a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
