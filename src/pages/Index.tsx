@@ -14,6 +14,7 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Phone,
   Send,
   ShieldCheck,
   Sparkles,
@@ -29,67 +30,74 @@ type View = 'dashboard' | 'projects' | 'journey' | 'contact';
 
 const skills = [
   { name: 'Python', code: 'PY', tone: 'emerald' },
-  { name: 'TypeScript', code: 'TS', tone: 'blue' },
+  { name: 'Java', code: 'JV', tone: 'blue' },
+  { name: 'C++', code: 'C+', tone: 'coral' },
   { name: 'Flask', code: 'FL', tone: 'gold' },
-  { name: 'React', code: 'RE', tone: 'cyan' },
   { name: 'SQL', code: 'DB', tone: 'violet' },
-  { name: 'Git', code: 'GT', tone: 'coral' },
+  { name: 'Vue 3', code: 'VU', tone: 'cyan' },
   { name: 'TensorFlow', code: 'AI', tone: 'amber' },
-  { name: 'Linux', code: 'LX', tone: 'stone' },
+  { name: 'OpenCV', code: 'CV', tone: 'stone' },
 ];
 
 const projects = [
   {
     title: 'Car Parking Booking System',
-    description: 'Full-stack booking platform with secure authentication, live availability, payments, and an admin workspace.',
-    tags: ['Flask', 'Python', 'SQLite'],
+    description: 'Full-stack multi-location parking platform with REST APIs, normalized data models, concurrent bookings, and securely hashed authentication.',
+    tags: ['Flask', 'Python', 'SQL'],
     status: 'Complete',
     icon: Blocks,
   },
   {
-    title: 'Time Insight Tracker Pro',
-    description: 'Productivity tracker with real-time activity insights, interactive visualizations, goals, and report exports.',
-    tags: ['TypeScript', 'React', 'Chart.js'],
+    title: 'Trek Management App',
+    description: 'Modular trek-planning application with a Flask backend, Vue 3 interface, security-reviewed configuration, and stakeholder-led iteration.',
+    tags: ['Flask', 'Vue 3', 'JavaScript'],
     status: 'Complete',
     icon: Sparkles,
   },
   {
     title: 'Live Threatmap',
-    description: 'Performance-focused global cyber-threat visualization with live incident streams and geolocation filtering.',
-    tags: ['TypeScript', 'WebSockets', 'D3.js'],
-    status: 'Building',
+    description: 'Real-time cyber-threat visualization built during my internship using geolocation data to improve global threat monitoring and observability.',
+    tags: ['Cybersecurity', 'Geolocation', 'Data Viz'],
+    status: 'Professional',
     icon: ShieldCheck,
   },
 ];
 
 const journey = [
   {
-    period: '2025 — Present',
+    period: 'Current role',
     role: 'Cyber Research Analyst Intern',
-    place: 'DeepCytes Ventures · Mumbai',
-    detail: 'Digital footprint analysis, vulnerability assessment, AI-assisted threat detection, and mitigation research.',
+    place: 'Deepcytes.io Ventures',
+    detail: 'Conducting digital footprint analysis, identifying exposed assets, and applying AI-assisted threat detection, cyber audits, counter-surveillance, and ransomware protection practices.',
     icon: BriefcaseBusiness,
-  },
-  {
-    period: '2024 — Present',
-    role: 'Community Ambassador',
-    place: 'Riidl · Mumbai',
-    detail: 'Supporting early-stage startups, organizing technology initiatives, and strengthening founder communities.',
-    icon: UserRound,
-  },
-  {
-    period: 'Expected 2028',
-    role: 'Data Science Program',
-    place: 'IIT Madras',
-    detail: 'Foundation level completed with distinction, including an S Grade in Python.',
-    icon: GraduationCap,
   },
   {
     period: 'Expected 2028',
     role: 'B.Tech, AI & Data Science',
-    place: 'KJ Somaiya College of Engineering',
-    detail: 'Focused on practical AI, data structures, databases, software engineering, and deep learning.',
+    place: 'K J Somaiya College of Engineering · Mumbai',
+    detail: 'Honors in Cybersecurity · CGPA 9.29/10. Building strong foundations in algorithms, object-oriented programming, databases, and software engineering.',
+    icon: GraduationCap,
+  },
+  {
+    period: '2026',
+    role: 'Diploma in Programming',
+    place: 'IIT Madras',
+    detail: 'Programming diploma completed with a grade of 7.04/10.',
+    icon: GraduationCap,
+  },
+  {
+    period: '2024',
+    role: 'Higher Secondary Certificate',
+    place: 'Pace Junior College of Science · Mumbai',
+    detail: 'Completed HSC with a grade of 71%.',
     icon: BookOpen,
+  },
+  {
+    period: 'Leadership & activities',
+    role: 'Community & Event Leadership',
+    place: 'Riidl · Symphony, KJSCE · Mumbai Hack',
+    detail: 'Coordinated startup mentorship and innovation events as a Riidl Ambassador, supported Symphony event operations, and participated in Mumbai Hack 2025.',
+    icon: UserRound,
   },
 ];
 
@@ -117,8 +125,8 @@ const Dashboard = ({ navigate }: { navigate: (view: View) => void }) => (
         <span className="status-line"><span /> AVAILABLE FOR COLLABORATION</span>
         <p className="intro-kicker">Hello, I’m</p>
         <h1>YASH<br />MUSTERYA</h1>
-        <p className="intro-role">Backend developer & data science enthusiast</p>
-        <p className="intro-summary">I build dependable digital products by turning difficult technical problems into clear, useful systems.</p>
+        <p className="intro-role">Software engineering intern candidate</p>
+        <p className="intro-summary">Third-year AI & Data Science student with a Cybersecurity honors focus, building reliable full-stack systems through strong OOP, algorithms, and collaborative engineering.</p>
         <div className="intro-actions">
           <Button onClick={() => navigate('projects')} className="pixel-button">
             Explore work <ChevronRight className="h-4 w-4" />
@@ -138,10 +146,10 @@ const Dashboard = ({ navigate }: { navigate: (view: View) => void }) => (
 
     <section className="about-panel panel-sunken">
       <SectionTitle eyebrow="Player profile" title="About me" />
-      <p>I’m a curious developer focused on backend systems, data-driven tools, and cybersecurity. My work combines analytical precision with practical design.</p>
+      <p>I turn requirements into scalable software, combining full-stack engineering, data analysis, and cybersecurity with a growth mindset and collaborative approach.</p>
       <div className="stat-row">
-        <div><strong>03+</strong><span>Core projects</span></div>
-        <div><strong>02</strong><span>Degree tracks</span></div>
+        <div><strong>9.29</strong><span>B.Tech CGPA</span></div>
+        <div><strong>03</strong><span>Core builds</span></div>
         <div><strong>01</strong><span>Current role</span></div>
       </div>
     </section>
@@ -239,11 +247,11 @@ const JourneyView = () => (
       </div>
       <aside className="achievement-panel panel-raised">
         <Award />
-        <p>Achievement unlocked</p>
-        <h3>S Grade</h3>
-        <span>Python Foundation · IIT Madras</span>
+        <p>Academic milestone</p>
+        <h3>9.29</h3>
+        <span>B.Tech CGPA · K J Somaiya</span>
         <div className="xp-track"><i /></div>
-        <small>Foundation level completed</small>
+        <small>AI & Data Science · Cybersecurity Honors</small>
       </aside>
     </div>
   </div>
@@ -285,7 +293,8 @@ const ContactView = () => {
           <div className="contact-signal"><span /><span /><span /></div>
           <h3>Connection details</h3>
           <a href="mailto:musteryay@gmail.com"><Mail /> <span><small>Email</small>musteryay@gmail.com</span></a>
-          <div><MapPin /> <span><small>Location</small>Thane, Maharashtra, India</span></div>
+           <a href="tel:+919867684002"><Phone /> <span><small>Phone</small>+91 98676 84002</span></a>
+           <div><MapPin /> <span><small>Location</small>Mumbai, India</span></div>
           <a href="https://www.linkedin.com/in/yashmusterya/" target="_blank" rel="noreferrer"><Linkedin /> <span><small>LinkedIn</small>/in/yashmusterya</span></a>
           <p className="response-note"><Check /> Usually responds within 24 hours</p>
         </aside>
@@ -328,8 +337,8 @@ const Index = () => {
             </div>
             <div className="profile-copy">
               <p className="profile-name">Yash Musterya</p>
-              <p>Developer · Analyst</p>
-              <span><MapPin /> Thane, India</span>
+              <p>Software Engineer · Analyst</p>
+              <span><MapPin /> Mumbai, India</span>
             </div>
             <nav className="side-nav" aria-label="Portfolio sections">
               {navItems.map((item) => {
@@ -347,7 +356,7 @@ const Index = () => {
               <a href="mailto:musteryay@gmail.com" aria-label="Email"><Mail /></a>
             </div>
             <div className="xp-block">
-              <div><span>Growth</span><strong>78%</strong></div>
+              <div><span>B.Tech CGPA</span><strong>9.29/10</strong></div>
               <div className="xp-track"><i /></div>
             </div>
           </aside>
