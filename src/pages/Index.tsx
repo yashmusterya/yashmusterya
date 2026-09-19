@@ -77,7 +77,6 @@ const journey = [
     place: 'K J Somaiya College of Engineering · Mumbai',
     detail: 'Honors in Cybersecurity · CGPA 9.29/10. Building strong foundations in algorithms, object-oriented programming, databases, and software engineering.',
     icon: GraduationCap,
-    icon: UserRound,
   },
   {
     period: '2026',
